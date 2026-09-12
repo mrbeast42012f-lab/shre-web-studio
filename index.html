@@ -1,549 +1,977 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Shre Web Studio</title>
+<title>Shre Web Studio | Professional Websites</title>
+<meta name="description" content="Shre Web Studio creates modern, fast and professional websites for businesses and creators.">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#05070b;
+    color:#fff;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:92%;
+    max-width:1150px;
+    margin:auto;
+}
+
+/* NAVBAR */
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(5,7,11,.88);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav-inner{
+    height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:-.5px;
+}
+
+.logo span{
+    color:#00e5ff;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    align-items:center;
+}
+
+.nav-links a{
+    color:#b9c0cc;
+    font-size:14px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#00e5ff;
+}
+
+.menu-btn{
+    display:none;
+    font-size:26px;
+    cursor:pointer;
+}
+
+/* HERO */
+.hero{
+    min-height:650px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero:before{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:#00e5ff;
+    opacity:.08;
+    filter:blur(100px);
+    border-radius:50%;
+    right:-100px;
+    top:80px;
+}
+
+.hero-content{
+    max-width:780px;
+    position:relative;
+    z-index:2;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 15px;
+    border:1px solid rgba(0,229,255,.25);
+    background:rgba(0,229,255,.07);
+    color:#00e5ff;
+    border-radius:50px;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:22px;
+}
+
+.hero h1{
+    font-size:clamp(42px,7vw,76px);
+    line-height:1.02;
+    letter-spacing:-3px;
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:#00e5ff;
+}
+
+.hero p{
+    color:#9da5b3;
+    max-width:650px;
+    font-size:18px;
+    margin-bottom:32px;
+}
+
+.buttons{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 23px;
+    border-radius:10px;
+    font-weight:bold;
+    font-size:14px;
+    display:inline-block;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.btn-primary{
+    background:#00e5ff;
+    color:#001014;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 30px rgba(0,229,255,.2);
+}
+
+.btn-outline{
+    border:1px solid #29313d;
+    color:#fff;
+}
+
+.btn-outline:hover{
+    border-color:#00e5ff;
+    color:#00e5ff;
+}
+
+/* STATS */
+.stats{
+    border-top:1px solid rgba(255,255,255,.07);
+    border-bottom:1px solid rgba(255,255,255,.07);
+    padding:30px 0;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    text-align:center;
+}
+
+.stat h3{
+    font-size:28px;
+    color:#00e5ff;
+}
+
+.stat p{
+    color:#858e9d;
+    font-size:13px;
+}
+
+/* SECTION */
+section{
+    padding:90px 0;
+}
+
+.section-head{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-head .small{
+    color:#00e5ff;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.section-head h2{
+    font-size:40px;
+    margin:10px 0;
+}
+
+.section-head p{
+    color:#858e9d;
+    max-width:600px;
+    margin:auto;
+}
+
+/* SERVICES */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.card{
+    background:#0b0f16;
+    border:1px solid #1a202b;
+    border-radius:18px;
+    padding:28px 22px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(0,229,255,.4);
+}
+
+.icon{
+    width:48px;
+    height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:12px;
+    background:rgba(0,229,255,.08);
+    font-size:23px;
+    margin-bottom:20px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#858e9d;
+    font-size:14px;
+}
+
+/* PROCESS */
+.process{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.step{
+    position:relative;
+    padding:25px;
+    background:#090d13;
+    border:1px solid #181f29;
+    border-radius:16px;
+}
+
+.number{
+    color:#00e5ff;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.step h3{
+    margin-bottom:8px;
+}
+
+.step p{
+    color:#858e9d;
+    font-size:13px;
+}
+
+/* PRICING */
+.pricing{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    max-width:950px;
+    margin:auto;
+}
+
+.price-card{
+    background:#0b0f16;
+    border:1px solid #1b222d;
+    border-radius:20px;
+    padding:32px 25px;
+    position:relative;
+}
+
+.price-card.popular{
+    border-color:#00e5ff;
+    transform:translateY(-8px);
+}
+
+.popular-label{
+    position:absolute;
+    top:-13px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#00e5ff;
+    color:#001014;
+    padding:5px 13px;
+    border-radius:20px;
+    font-size:10px;
+    font-weight:bold;
+}
+
+.price-card h3{
+    margin-bottom:12px;
+}
+
+.price{
+    font-size:38px;
+    font-weight:800;
+    margin-bottom:20px;
+}
+
+.price span{
+    font-size:13px;
+    color:#7e8795;
+    font-weight:normal;
+}
+
+.features{
+    list-style:none;
+    margin-bottom:25px;
+}
+
+.features li{
+    color:#a5adba;
+    font-size:13px;
+    margin:11px 0;
+}
+
+.features li:before{
+    content:"✓";
+    color:#00e5ff;
+    margin-right:9px;
+}
+
+/* WHY */
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.why{
+    background:#0b0f16;
+    border:1px solid #1a202b;
+    padding:25px;
+    border-radius:16px;
+}
+
+.why h3{
+    margin-bottom:8px;
+}
+
+.why p{
+    color:#858e9d;
+    font-size:14px;
+}
+
+/* FAQ */
+.faq{
+    max-width:800px;
+    margin:auto;
+}
+
+details{
+    background:#0b0f16;
+    border:1px solid #1a202b;
+    border-radius:12px;
+    margin-bottom:12px;
+    padding:18px 20px;
+}
+
+summary{
+    cursor:pointer;
+    font-weight:bold;
+}
+
+details p{
+    color:#858e9d;
+    font-size:14px;
+    padding-top:12px;
+}
+
+/* CTA */
+.cta{
+    padding:70px 25px;
+    border:1px solid rgba(0,229,255,.2);
+    background:linear-gradient(135deg,#09131a,#071016);
+    border-radius:25px;
+    text-align:center;
+}
+
+.cta h2{
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.cta p{
+    color:#858e9d;
+    margin-bottom:25px;
+}
+
+/* FOOTER */
+footer{
+    border-top:1px solid rgba(255,255,255,.07);
+    padding:35px 0;
+    margin-top:90px;
+}
+
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    color:#727b89;
+    font-size:13px;
+}
+
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    background:#25d366;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    z-index:999;
+    box-shadow:0 8px 25px rgba(0,0,0,.4);
+}
+
+/* MOBILE */
+@media(max-width:850px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:72px;
+        left:0;
+        width:100%;
+        background:#070a0f;
+        padding:20px;
+        flex-direction:column;
+        border-bottom:1px solid #1b222d;
     }
 
-    html {
-      scroll-behavior: smooth;
+    .nav-links.active{
+        display:flex;
     }
 
-    body {
-      background: #08090d;
-      color: #ffffff;
+    .menu-btn{
+        display:block;
     }
 
-    header {
-      padding: 22px 20px;
-      text-align: center;
-      border-bottom: 1px solid #25262d;
-      background: #0d0e13;
+    .hero{
+        min-height:600px;
     }
 
-    header h1 {
-      font-size: 28px;
-      letter-spacing: 1px;
+    .hero h1{
+        letter-spacing:-2px;
     }
 
-    header p {
-      margin-top: 7px;
-      color: #999;
-      font-size: 14px;
+    .hero p{
+        font-size:16px;
     }
 
-    .hero {
-      min-height: 78vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 50px 20px;
-      background:
-        radial-gradient(circle at top, #10252b 0%, #08090d 45%);
+    .cards,
+    .process{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .hero-content {
-      max-width: 750px;
+    .pricing{
+        grid-template-columns:1fr;
     }
 
-    .badge {
-      display: inline-block;
-      padding: 8px 14px;
-      border: 1px solid #00e5ff;
-      border-radius: 50px;
-      color: #00e5ff;
-      font-size: 13px;
-      margin-bottom: 20px;
+    .price-card.popular{
+        transform:none;
     }
 
-    .hero h2 {
-      font-size: 52px;
-      line-height: 1.1;
-      margin-bottom: 20px;
+    .why-grid{
+        grid-template-columns:1fr;
     }
 
-    .hero h2 span {
-      color: #00e5ff;
+    .cta h2{
+        font-size:32px;
     }
 
-    .hero p {
-      color: #b4b4b4;
-      font-size: 18px;
-      line-height: 1.7;
-      margin-bottom: 30px;
+    .footer-inner{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+
+@media(max-width:520px){
+
+    .container{
+        width:90%;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 15px 24px;
-      margin: 5px;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: bold;
-      transition: 0.2s;
+    section{
+        padding:70px 0;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
+    .hero h1{
+        font-size:45px;
     }
 
-    .primary {
-      background: #00e5ff;
-      color: #000;
+    .buttons .btn{
+        width:100%;
+        text-align:center;
     }
 
-    .secondary {
-      background: #191a21;
-      color: #fff;
-      border: 1px solid #30313a;
+    .stats-grid{
+        grid-template-columns:1fr;
+        gap:25px;
     }
 
-    section {
-      padding: 75px 20px;
-      text-align: center;
+    .cards,
+    .process{
+        grid-template-columns:1fr;
     }
 
-    section h2 {
-      font-size: 34px;
-      margin-bottom: 12px;
+    .section-head h2{
+        font-size:32px;
     }
-
-    .section-text {
-      color: #999;
-      margin-bottom: 38px;
-    }
-
-    .cards {
-      max-width: 1050px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: #121319;
-      border: 1px solid #292b34;
-      border-radius: 16px;
-      padding: 30px 22px;
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: #00e5ff;
-    }
-
-    .icon {
-      font-size: 35px;
-      margin-bottom: 15px;
-    }
-
-    .card h3 {
-      font-size: 20px;
-      margin-bottom: 12px;
-    }
-
-    .card p {
-      color: #999;
-      line-height: 1.6;
-      font-size: 14px;
-    }
-
-    .price {
-      font-size: 34px;
-      color: #00e5ff;
-      font-weight: bold;
-      margin: 18px 0;
-    }
-
-    .price span {
-      font-size: 14px;
-      color: #777;
-      font-weight: normal;
-    }
-
-    .popular {
-      border: 1px solid #00e5ff;
-      position: relative;
-    }
-
-    .popular-label {
-      display: inline-block;
-      background: #00e5ff;
-      color: #000;
-      padding: 5px 10px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    .why {
-      max-width: 900px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 18px;
-    }
-
-    .why-box {
-      background: #121319;
-      border: 1px solid #292b34;
-      border-radius: 14px;
-      padding: 25px 15px;
-    }
-
-    .why-box h3 {
-      margin-bottom: 8px;
-    }
-
-    .why-box p {
-      color: #999;
-      font-size: 14px;
-    }
-
-    .cta {
-      background: #0d1619;
-      border-top: 1px solid #202b2e;
-      border-bottom: 1px solid #202b2e;
-    }
-
-    .cta p {
-      color: #aaa;
-      margin: 15px 0 25px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 28px 20px;
-      color: #777;
-      font-size: 13px;
-    }
-
-    @media (max-width: 600px) {
-
-      .hero {
-        min-height: 70vh;
-      }
-
-      .hero h2 {
-        font-size: 37px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      section {
-        padding: 55px 18px;
-      }
-
-      section h2 {
-        font-size: 29px;
-      }
-
-      .btn {
-        width: 100%;
-        max-width: 300px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <h1>Shre Web Studio</h1>
-    <p>Modern Websites • Professional Design • Affordable Price</p>
-  </header>
+<!-- NAVBAR -->
+<header class="navbar">
+<div class="container nav-inner">
 
+<a href="#" class="logo">Shre<span>.</span>Web Studio</a>
 
-  <!-- HERO -->
-  <section class="hero">
+<nav class="nav-links" id="navLinks">
+<a href="#services">Services</a>
+<a href="#process">Process</a>
+<a href="#pricing">Pricing</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-    <div class="hero-content">
+</div>
+</header>
 
-      <div class="badge">
-        🚀 WE BUILD YOUR ONLINE PRESENCE
-      </div>
 
-      <h2>
-        Your Business Deserves
-        <span>A Better Website</span>
-      </h2>
+<!-- HERO -->
+<section class="hero">
+<div class="container">
 
-      <p>
-        We create modern, professional and mobile-friendly
-        websites for businesses, shops, creators and personal brands.
-      </p>
+<div class="hero-content">
 
-      <button class="btn primary" onclick="openWhatsApp()">
-        💬 Get Your Website
-      </button>
+<div class="badge">🚀 MODERN WEB DESIGN STUDIO</div>
 
-      <a href="#services" class="btn secondary">
-        Explore Services
-      </a>
+<h1>
+We Build Websites That Make Your Business Look <span>Premium.</span>
+</h1>
 
-    </div>
+<p>
+Modern, fast and mobile-friendly websites designed to help your business build trust, attract customers and grow online.
+</p>
 
-  </section>
+<div class="buttons">
+<a class="btn btn-primary" href="javascript:void(0)" onclick="openWhatsApp()">
+💬 Start Your Project
+</a>
 
+<a class="btn btn-outline" href="#services">
+Explore Services →
+</a>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- STATS -->
+<div class="stats">
+<div class="container stats-grid">
+
+<div class="stat">
+<h3>100%</h3>
+<p>Mobile Friendly</p>
+</div>
+
+<div class="stat">
+<h3>24/7</h3>
+<p>Online Presence</p>
+</div>
+
+<div class="stat">
+<h3>Fast</h3>
+<p>Modern Performance</p>
+</div>
+
+</div>
+</div>
 
-  <!-- SERVICES -->
-  <section id="services">
+
+<!-- SERVICES -->
+<section id="services">
+<div class="container">
+
+<div class="section-head">
+<div class="small">WHAT WE DO</div>
+<h2>Our Services</h2>
+<p>Everything you need to create a strong online presence.</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">🌐</div>
+<h3>Business Website</h3>
+<p>Professional websites that make your business look trustworthy and premium.</p>
+</div>
 
-    <h2>Our Services</h2>
+<div class="card">
+<div class="icon">🚀</div>
+<h3>Landing Page</h3>
+<p>High-converting landing pages designed to turn visitors into customers.</p>
+</div>
+
+<div class="card">
+<div class="icon">📱</div>
+<h3>Mobile Friendly</h3>
+<p>Responsive designs that look great on phones, tablets and computers.</p>
+</div>
+
+<div class="card">
+<div class="icon">⚡</div>
+<h3>Fast Website</h3>
+<p>Clean and lightweight websites built for a smooth browsing experience.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- PROCESS -->
+<section id="process">
+<div class="container">
+
+<div class="section-head">
+<div class="small">HOW IT WORKS</div>
+<h2>Simple Process</h2>
+<p>From idea to live website in a few simple steps.</p>
+</div>
+
+<div class="process">
+
+<div class="step">
+<div class="number">01 — DISCUSS</div>
+<h3>Your Idea</h3>
+<p>Tell us about your business and what you need.</p>
+</div>
+
+<div class="step">
+<div class="number">02 — DESIGN</div>
+<h3>We Build</h3>
+<p>We create a modern design around your requirements.</p>
+</div>
+
+<div class="step">
+<div class="number">03 — REVIEW</div>
+<h3>Your Feedback</h3>
+<p>You review the website and request necessary changes.</p>
+</div>
+
+<div class="step">
+<div class="number">04 — LAUNCH</div>
+<h3>Go Online</h3>
+<p>Your website is published and ready for customers.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- PRICING -->
+<section id="pricing">
+<div class="container">
+
+<div class="section-head">
+<div class="small">SIMPLE PRICING</div>
+<h2>Choose Your Plan</h2>
+<p>Affordable packages for businesses of different sizes.</p>
+</div>
+
+<div class="pricing">
+
+<div class="price-card">
+<h3>Basic</h3>
+<div class="price">₹999 <span>/ website</span></div>
+
+<ul class="features">
+<li>Single Page Website</li>
+<li>Mobile Responsive</li>
+<li>Modern Design</li>
+<li>WhatsApp Button</li>
+<li>Basic Support</li>
+</ul>
+
+<a class="btn btn-outline" href="javascript:void(0)" onclick="orderPackage('Basic - ₹999')">
+Choose Basic
+</a>
+</div>
+
+
+<div class="price-card popular">
+
+<div class="popular-label">MOST POPULAR</div>
+
+<h3>Professional</h3>
+<div class="price">₹1999 <span>/ website</span></div>
+
+<ul class="features">
+<li>Multi-Section Website</li>
+<li>Premium Design</li>
+<li>Mobile Responsive</li>
+<li>WhatsApp Integration</li>
+<li>Contact Section</li>
+<li>Basic SEO Setup</li>
+</ul>
+
+<a class="btn btn-primary" href="javascript:void(0)" onclick="orderPackage('Professional - ₹1999')">
+Choose Professional
+</a>
+
+</div>
+
+
+<div class="price-card">
+<h3>Premium</h3>
+<div class="price">₹2999 <span>/ website</span></div>
 
-    <p class="section-text">
-      Everything you need to build your online presence.
-    </p>
+<ul class="features">
+<li>Premium Website</li>
+<li>Advanced Sections</li>
+<li>Mobile Responsive</li>
+<li>WhatsApp Integration</li>
+<li>Custom Design</li>
+<li>Priority Support</li>
+</ul>
+
+<a class="btn btn-outline" href="javascript:void(0)" onclick="orderPackage('Premium - ₹2999')">
+Choose Premium
+</a>
 
-    <div class="cards">
+</div>
 
-      <div class="card">
-        <div class="icon">🌐</div>
-        <h3>Business Website</h3>
-        <p>
-          Professional websites for shops, businesses,
-          companies and services.
-        </p>
-      </div>
+</div>
+</div>
+</section>
 
-      <div class="card">
-        <div class="icon">🎨</div>
-        <h3>Landing Page</h3>
-        <p>
-          Attractive landing pages designed to turn
-          visitors into customers.
-        </p>
-      </div>
 
-      <div class="card">
-        <div class="icon">📱</div>
-        <h3>Mobile Friendly</h3>
-        <p>
-          Your website will look beautiful on mobile,
-          tablet and desktop.
-        </p>
-      </div>
+<!-- WHY US -->
+<section>
+<div class="container">
 
-      <div class="card">
-        <div class="icon">⚡</div>
-        <h3>Fast Website</h3>
-        <p>
-          Lightweight and optimized websites
-          for a smooth experience.
-        </p>
-      </div>
+<div class="section-head">
+<div class="small">WHY SHRE WEB STUDIO</div>
+<h2>Built For Your Growth</h2>
+<p>We focus on design, performance and a professional customer experience.</p>
+</div>
 
-    </div>
+<div class="why-grid">
 
-  </section>
+<div class="why">
+<h3>⚡ Fast & Lightweight</h3>
+<p>Clean website structure for a smooth and fast browsing experience.</p>
+</div>
 
+<div class="why">
+<h3>📱 Mobile First</h3>
+<p>Your customers can easily browse your website from their smartphones.</p>
+</div>
 
-  <!-- PRICING -->
-  <section>
+<div class="why">
+<h3>🎨 Professional Design</h3>
+<p>Modern layouts designed to make your brand look trustworthy.</p>
+</div>
 
-    <h2>Simple Pricing</h2>
+<div class="why">
+<h3>💬 Easy Support</h3>
+<p>Quick communication through WhatsApp for questions and updates.</p>
+</div>
 
-    <p class="section-text">
-      Choose the package that fits your needs.
-    </p>
+</div>
+</div>
+</section>
 
-    <div class="cards">
 
-      <!-- BASIC -->
-      <div class="card">
+<!-- FAQ -->
+<section id="faq">
+<div class="container">
 
-        <h3>Basic</h3>
+<div class="section-head">
+<div class="small">FAQ</div>
+<h2>Frequently Asked Questions</h2>
+</div>
 
-        <div class="price">
-          ₹999
-        </div>
+<div class="faq">
 
-        <p>
-          ✔ Professional design<br>
-          ✔ Mobile friendly<br>
-          ✔ Basic sections<br>
-          ✔ WhatsApp contact
-        </p>
+<details>
+<summary>How do I order a website?</summary>
+<p>Click any WhatsApp button and tell us about your business and website requirements.</p>
+</details>
 
-        <button class="btn primary" onclick="orderPackage('Basic Package - ₹999')">
-          Order Now
-        </button>
+<details>
+<summary>Will my website work on mobile?</summary>
+<p>Yes. Our website designs are made to work across mobile, tablet and desktop screens.</p>
+</details>
 
-      </div>
+<details>
+<summary>Can I request changes?</summary>
+<p>Yes. You can discuss your requirements and necessary changes before final launch.</p>
+</details>
 
+<details>
+<summary>How long does it take?</summary>
+<p>Delivery time depends on the website size and requirements. We will discuss the timeline before starting.</p>
+</details>
 
-      <!-- PROFESSIONAL -->
-      <div class="card popular">
+</div>
+</div>
+</section>
 
-        <div class="popular-label">
-          MOST POPULAR
-        </div>
 
-        <h3>Professional</h3>
+<!-- CTA -->
+<section id="contact">
+<div class="container">
 
-        <div class="price">
-          ₹1999
-        </div>
+<div class="cta">
 
-        <p>
-          ✔ Premium design<br>
-          ✔ Mobile friendly<br>
-          ✔ Multiple sections<br>
-          ✔ WhatsApp integration<br>
-          ✔ Professional layout
-        </p>
+<h2>Ready To Build Your Website?</h2>
 
-        <button class="btn primary" onclick="orderPackage('Professional Package - ₹1999')">
-          Order Now
-        </button>
+<p>
+Let's turn your idea into a professional online presence.
+</p>
 
-      </div>
+<a class="btn btn-primary" href="javascript:void(0)" onclick="openWhatsApp()">
+💬 Chat With Us On WhatsApp
+</a>
 
+</div>
 
-      <!-- PREMIUM -->
-      <div class="card">
+</div>
+</section>
 
-        <h3>Premium</h3>
 
-        <div class="price">
-          ₹2999
-        </div>
+<!-- FOOTER -->
+<footer>
+<div class="container footer-inner">
 
-        <p>
-          ✔ Advanced design<br>
-          ✔ Premium sections<br>
-          ✔ WhatsApp integration<br>
-          ✔ Responsive design<br>
-          ✔ Custom requirements
-        </p>
+<div>
+© 2026 Shre Web Studio. All Rights Reserved.
+</div>
 
-        <button class="btn primary" onclick="orderPackage('Premium Package - ₹2999')">
-          Order Now
-        </button>
+<div>
+Modern Websites • Professional Design • Affordable Price
+</div>
 
-      </div>
+</div>
+</footer>
 
-    </div>
 
-  </section>
+<!-- FLOATING WHATSAPP -->
+<a class="whatsapp"
+href="javascript:void(0)"
+onclick="openWhatsApp()"
+aria-label="WhatsApp">
+💬
+</a>
 
 
-  <!-- WHY US -->
-  <section>
+<script>
 
-    <h2>Why Choose Us?</h2>
+const phoneNumber = "917501911715";
 
-    <p class="section-text">
-      We focus on quality, simplicity and customer satisfaction.
-    </p>
+function openWhatsApp(){
 
-    <div class="why">
+    const message =
+    "Hello Shre Web Studio! 👋%0A%0AI want to create a professional website.%0A%0APlease share the details.";
 
-      <div class="why-box">
-        <h3>⚡ Fast</h3>
-        <p>Fast and smooth website experience.</p>
-      </div>
+    window.open(
+        "https://wa.me/" + phoneNumber + "?text=" + message,
+        "_blank"
+    );
+}
 
-      <div class="why-box">
-        <h3>📱 Responsive</h3>
-        <p>Works perfectly on mobile and desktop.</p>
-      </div>
+function orderPackage(packageName){
 
-      <div class="why-box">
-        <h3>🎯 Professional</h3>
-        <p>Clean and modern professional design.</p>
-      </div>
+    const message =
+    "Hello Shre Web Studio! 👋%0A%0AI am interested in:%0A" +
+    packageName +
+    "%0A%0APlease share the details.";
 
-      <div class="why-box">
-        <h3>💬 Support</h3>
-        <p>Easy communication through WhatsApp.</p>
-      </div>
+    window.open(
+        "https://wa.me/" + phoneNumber + "?text=" + message,
+        "_blank"
+    );
+}
 
-    </div>
+function toggleMenu(){
 
-  </section>
+    document
+    .getElementById("navLinks")
+    .classList
+    .toggle("active");
 
+}
 
-  <!-- CTA -->
-  <section class="cta">
+document.querySelectorAll(".nav-links a").forEach(function(link){
 
-    <h2>Ready To Build Your Website?</h2>
+    link.addEventListener("click",function(){
 
-    <p>
-      Tell us your idea and we'll help you turn it into a website.
-    </p>
+        document
+        .getElementById("navLinks")
+        .classList
+        .remove("active");
 
-    <button class="btn primary" onclick="openWhatsApp()">
-      💬 Chat On WhatsApp
-    </button>
+    });
 
-  </section>
+});
 
-
-  <!-- FOOTER -->
-  <footer>
-
-    © 2026 Shre Web Studio. All Rights Reserved.
-
-  </footer>
-
-
-  <!-- WHATSAPP SCRIPT -->
-  <script>
-
-    const phoneNumber = "917501911715";
-
-    function openWhatsApp() {
-
-      const message =
-        "Hello Shre Web Studio! I want to create a website.";
-
-      const url =
-        "https://wa.me/" +
-        phoneNumber +
-        "?text=" +
-        encodeURIComponent(message);
-
-      window.open(url, "_blank");
-    }
-
-
-    function orderPackage(packageName) {
-
-      const message =
-        "Hello Shre Web Studio! I am interested in the " +
-        packageName +
-        ". I want to know more details.";
-
-      const url =
-        "https://wa.me/" +
-        phoneNumber +
-        "?text=" +
-        encodeURIComponent(message);
-
-      window.open(url, "_blank");
-    }
-
-  </script>
+</script>
 
 </body>
 </html>
